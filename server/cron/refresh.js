@@ -1,9 +1,9 @@
 import { Meteor } from 'meteor/meteor';
 import { CronJob } from 'cron';
 import { Participants } from '../models/participants';
-import { baseTimeStamp } from '../../config.js';
+import { baseTimeStamp } from '../../config.sample.js';
 import fetch, { Headers } from 'node-fetch';
-import config from '../../config';
+import config from '../../config.sample';
 
 const updateData = async () => {
     const participantsList = Participants.find({}).fetch();
