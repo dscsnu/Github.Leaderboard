@@ -69,6 +69,6 @@ Meteor.startup(() => {
         // use this wrapper if you want to work with mongo:
         onTick: updateData,
         start: true,
-        timeZone: 'America/Los_Angeles',
+        timeZone: 'Asia/Kolkata',
     });
 });
