@@ -1,0 +1,29 @@
+body {
+  padding: 10px;
+  font-family: sans-serif;
+}
+
+#content
+{
+  display: block;
+  width: 100%;
+  max-width: 800px;
+  margin: auto;
+}
+
+table
+{
+  width: 100%;
+  justify-content: space-evenly;
+  text-align: center;
+}
+
+tr:nth-child(1)
+{
+  font-weight: bold;
+}
+
+h1
+{
+  text-align: center;
+}
