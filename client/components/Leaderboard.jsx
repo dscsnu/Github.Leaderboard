@@ -20,13 +20,13 @@ const Leaderboard = React.memo(({ participants }) => {
                     participants
                     .sort((a, b) => {
                         if(a.prs > b.prs)
-                            return 1;
+                            return -1;
                         else if(b.prs > a.prs)
-                            return -1;
-                        else if(a.commits > b.commits)
                             return 1;
-                        else if(b.commits > a.commits)
+                        else if(a.commits > b.commits)
                             return -1;
+                        else if(b.commits > a.commits)
+                            return 1;
                         else
                             return 0;
                     })
