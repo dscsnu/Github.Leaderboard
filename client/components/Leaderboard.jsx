@@ -11,7 +11,7 @@ const Leaderboard = React.memo(({ participants }) => {
         <table>
             <tbody>
                 <tr>
-                    <td>Rank</td>
+                    <td></td>
                     <td>Username</td>
                     <td>Pull Requests</td>
                     <td>Commits</td>
@@ -32,8 +32,17 @@ const Leaderboard = React.memo(({ participants }) => {
                     })
                     .map((person, i) => (
                         <tr key={i}>
-                            <td>{i + 1}</td>
-                            <td>{person.username}</td>
+                            <td>
+                                {
+                                    (person.avatar_url && person.avatar_url.length > 0) ?
+                                    <img src={person.avatar_url} className="avatar"/>:
+                                    null
+                                }
+                            </td>
+                            <td>
+                                
+                                {person.username}
+                            </td>
                             <td>{person.prs}</td>
                             <td>{person.commits}</td>
                         </tr>

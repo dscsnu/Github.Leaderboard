@@ -1,13 +1,20 @@
+*
+{
+  box-sizing: border-box;
+}
+
 body {
   padding: 10px;
   font-family: sans-serif;
+  background-color: rgb(27, 27, 27);
+  color: white;
 }
 
 #content
 {
   display: block;
   width: 100%;
-  max-width: 800px;
+  padding: 20px;
   margin: auto;
 }
 
@@ -16,6 +23,12 @@ table
   width: 100%;
   justify-content: space-evenly;
   text-align: center;
+  font-size: 30px;
+}
+
+table td
+{
+  padding: 15px 0;
 }
 
 tr:nth-child(1)
@@ -26,4 +39,15 @@ tr:nth-child(1)
 h1
 {
   text-align: center;
+}
+
+img.avatar
+{
+  height: 40px;
+  vertical-align: middle;
+}
+
+table td *
+{
+  vertical-align: middle;
 }
