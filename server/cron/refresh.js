@@ -55,13 +55,13 @@ const perPerson = async person => {
             }
         });
         let newPRs = events.filter(event => (Date.parse(event.created_at) > lastContrib && event.type === 'PullRequestEvent' && event.payload && event.payload.action && event.payload.action === 'opened')).length;
-        let output = Participants.update(
+        Participants.update(
             { username : username },
             { 
                 $set: {
                     lastContrib: events[0] ? Date.parse( events[0].created_at ) : lastContrib,
-                    commits: commits + newCommits,
-                    prs: prs + newPRs,
+                    commits: parseInt(commits) + parseInt(newCommits),
+                    prs: parseInt(prs) + parseInt(newPRs),
                     avatar_url: avatar_url
                 } 
             }
@@ -86,14 +86,11 @@ Meteor.startup(() => {
         start: true,
         timeZone: 'Asia/Kolkata',
     });
-
+    //Participants.remove({});
     if(Participants.find({}).fetch().length < 1){
         //Initialize the database: First launch
-        Participants.remove({});
-
         for(part in config.participants)
             Participants.insert(config.participants[part]);
     }
-
     updateData();
 });
