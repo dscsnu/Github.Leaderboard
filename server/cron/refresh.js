@@ -34,8 +34,9 @@ const perPerson = async person => {
                 }
             );
             temp = await temp.json();
+            console.log({ temp });
             events = [...events, ...temp];
-            if(temp.length > 0 && Date.parse(temp[temp.length - 1].created_at) < lastContrib)
+            if(temp.length <= 0 || Date.parse(temp[temp.length - 1].created_at) < lastContrib)
             break;
         }
 
@@ -60,8 +61,8 @@ const perPerson = async person => {
             { 
                 $set: {
                     lastContrib: events[0] ? Date.parse( events[0].created_at ) : lastContrib,
-                    commits: parseInt(commits) + parseInt(newCommits),
-                    prs: parseInt(prs) + parseInt(newPRs),
+                    commits: parseInt(commits) + newCommits,
+                    prs: parseInt(prs) + newPRs,
                     avatar_url: avatar_url
                 } 
             }
